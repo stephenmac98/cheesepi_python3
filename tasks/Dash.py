@@ -27,7 +27,7 @@ class Dash(Task.Task):
 		self.spec['start_time'] = cp.utils.now()
 		self.perform()
 		self.spec['end_time'] = cp.utils.now()
-		#print "Output: %s" % op_output
+		#print (("Output: %s" % op_output)
 		#logger.debug(op_output)
 		if not 'download_speed' in self.spec:
 			self.spec['download_speed'] = self.spec['downloaded'] /(self.spec['end_time']-self.spec['start_time'])
@@ -55,7 +55,7 @@ class Dash(Task.Task):
 	def callback(self, stats):
 		#logger.info(stats)
 		if stats['status'] == 'finished':
-			#print stats
+			#print (stats)
 			if 'downloaded_bytes' in stats:
 				self.spec['downloaded'] = stats['downloaded_bytes']
 			else:

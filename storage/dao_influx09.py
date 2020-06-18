@@ -95,7 +95,7 @@ class DAO_influx(dao.DAO):
 
 
 	def format09(self,table,dic):
-		#print [{"measurement":table,"fields":dic}]
+		#print ([{"measurement":table,"fields":dic}])
 		return [{'measurement':table, "database":"cheesepi", "fields":dic, "tags":{"source":"dao"} }]
 		#return json_body
 
@@ -164,7 +164,7 @@ class DAO_influx(dao.DAO):
 			value = result[0]['points'][0][column_index]
 		except InfluxDBClientError:
 			#msg = "Problem connecting to InfluxDB: "+str(e)
-			#print msg
+			#print (msg)
 			#logger.error(msg)
 			return -1
 		except Exception as e:

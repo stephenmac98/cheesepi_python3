@@ -47,7 +47,7 @@ config_file  = os.path.join(cheesepi_dir, "cheesepi.conf")
 # Store log in user's home directory
 log_file    = os.path.join(log_dir, ".cheesepi.log")
 if not os.access(log_file, os.W_OK):
-	print "Error: can not open log file %s" % log_file
+	print ("Error: can not open log file %s" % log_file)
 	sys.exit(1)
 log_level  = logging.ERROR
 log_stdout = False
@@ -128,7 +128,7 @@ def ensure_default_config(clobber=False):
 	if os.path.isfile(config_file) and not clobber:
 		return
 
-	print "Warning: Copying cheesepi.default.conf file to a local version: %s" % config_file
+	print ("Warning: Copying cheesepi.default.conf file to a local version: %s" % config_file)
 	default_config = os.path.join(cheesepi_dir,"cheesepi.default.conf")
 	# Can we find the default config file?
 	if os.path.isfile(default_config):
@@ -141,7 +141,7 @@ def ensure_default_config(clobber=False):
 		try:
 			copyfile(default_config, config_file, replace=replace)
 		except Exception as e:
-			print "Error: Problem copying config file - check permissions of %s\n%s" % (cheesepi_dir,e)
+			print ("Error: Problem copying config file - check permissions of %s\n%s" % (cheesepi_dir,e))
 			exit(1)
 	else:
 		logger.error("Can not find default config file!")
@@ -182,7 +182,7 @@ def get_config():
 def create_default_schedule(schedule_filename):
 	"""If schedule file does not exist, try to copy from default."""
 	# is there already a local schedule file?
-	print "Warning: Copying default schedule file to a local version"
+	print ("Warning: Copying default schedule file to a local version")
 	default_schedule = os.path.join(cheesepi_dir,"schedule.default.dat")
 	# Can we find the default schedule file?
 	if os.path.isfile(default_schedule):

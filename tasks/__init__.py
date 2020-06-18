@@ -18,5 +18,5 @@ try:
 	from Updatetasks import Updatetasks
 	from Beacon import Beacon
 except Exception as e:
-	print "Warning: Problems importing Beacon/Updatetasks, python Twisted probably not installed. %s" % e
+	print ("Warning: Problems importing Beacon/Updatetasks, python Twisted probably not installed. %s" % e)
 

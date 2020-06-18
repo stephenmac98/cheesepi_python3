@@ -44,5 +44,5 @@ if __name__ == "__main__":
 	spec = {}
 	voip_task = VoIP(dao, spec)
 	voip_task.run()
-	print voip_task.spec
+	print (voip_task.spec)
 

@@ -11,7 +11,7 @@ try:
 	enabled = True
 except ImportError as e:
 	# twisted import failed
-	print "Error: Can not import Twisted/messagepack framework, Beaconing disabled..."
+	print ("Error: Can not import Twisted/messagepack framework, Beaconing disabled...")
 	raise # re-raise the problem
 
 import cheesepi as cp
@@ -58,11 +58,11 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	if args.id is None:
-		print "Error: missing --id"
+		print ("Error: missing --id")
 		exit()
 	if enabled:
 		reactor.callWhenRunning(main, args.id)
 		reactor.run()
 	else:
-		print "Error: Can not import Twisted framework, beaconing disabled."
+		print ("Error: Can not import Twisted framework, beaconing disabled.")
 

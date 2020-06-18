@@ -39,11 +39,11 @@ class PingB(Task.Task):
 	def parse(self, data, start_time, end_time):
 		self.spec['start'] = start_time
 		self.spec['end']   = end_time
-		#print data
+		#print (data)
 		lines = data.split("\n")
 		hops=[]
 		for line in lines[2:-1]:
-			#print line
+			#print (line)
 			fields = line.split()
 			hops.append(self.parse_hop(fields))
 		#logger.debug("hops: ",hops)

@@ -32,7 +32,7 @@ class Throughput(Task.Task):
 		self.spec['start_time'] = cp.utils.now()
 		try:
 			op_output = speedtest.speedtest()
-			print op_output
+			print (op_output)
 		except Exception as e:
 			logger.error("speedtest_cli failed: %s" % e)
 			return

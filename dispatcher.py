@@ -51,7 +51,7 @@ def async(task):
 			raise # No worries, pass up the stack
 		# Need to wrap the exception with something multiprocessing will recognise
 		import traceback
-		print "Unhandled exception %s (%s):\n%s" % (cls.__name__, exc, traceback.format_exc())
+		print ("Unhandled exception %s (%s):\n%s" % (cls.__name__, exc, traceback.format_exc()))
 		logger.error("Unhandled exception %s (%s):\n%s" % (cls.__name__, exc, traceback.format_exc()))
 		raise Exception("Unhandled exception: %s (%s)" % (cls.__name__, exc))
 
@@ -105,14 +105,14 @@ def load_schedule():
 	return tasks
 
 def print_schedule(schedule_list):
-	print "Using the following schedule:"
+	print ("Using the following schedule:")
 	for t in schedule_list:
-		print t
+		print (t)
 
 def HUP():
 	"""Reload config if we receive a HUP signal"""
 	global pool
-	print "Reloading..."
+	print ("Reloading...")
 	pool.terminate()
 	start()
 

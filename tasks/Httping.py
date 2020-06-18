@@ -46,7 +46,7 @@ class Httping(Task.Task):
 		command = "httping -S -c %s %s" % (ping_count, landmark)
 		logging.info("Executing: "+command)
 		self.spec['return_code'], output = self.execute(command)
-		#print self.spec['return_code'], output
+		#print (self.spec['return_code'], output)
 		if self.spec['return_code']==0:
 			return output
 		return None

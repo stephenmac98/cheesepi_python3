@@ -30,7 +30,7 @@ class DNS(Task.Task):
 	def measure(self):
 		try:
 			op_output = self.query_authoritative_ns(self.spec['landmark'], log)
-			#print op_output
+			#print (op_output)
 		except Exception as e:
 			logger.error("DNS query failed: %s" % e)
 			return
@@ -78,7 +78,7 @@ class DNS(Task.Task):
 
 			# Handle all RRsets, not just the first one
 			for rrset in rrsets:
-				#print rrset
+				#print (rrset)
 				for rr in rrset:
 					if rr.rdtype == dns.rdatatype.SOA:
 						#log('Same server is authoritative for %s' % (sub))

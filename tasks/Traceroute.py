@@ -152,7 +152,7 @@ class Traceroute(Task.Task):
 #parses arguments
 if __name__ == "__main__":
 	if platform.system()=="Darwin":
-		print "Seems to be Darwin OS (Mac), exiting..."
+		print ("Seems to be Darwin OS (Mac), exiting...")
 		exit(0)
 
 	#general logging here? unable to connect etc

@@ -44,7 +44,7 @@ class DAO_mongo(dao.DAO):
         except:
             msg = "Error: Connection to Mongo database failed! Ensure MongoDB is running."
             logging.error(msg)
-            print msg
+            print (msg)
             exit(1)
         self.db = self.conn.cheesepi
         self.fs = gridfs.GridFS(self.db)
@@ -68,7 +68,7 @@ class DAO_mongo(dao.DAO):
         md5 = hashlib.md5(config['secret']+str(dic)).hexdigest()
         dic['sign']    = md5
 
-        print "Saving %s Operation: %s" % (op_type, dic)
+        print ("Saving %s Operation: %s" % (op_type, dic))
         try:
             id = collection.insert(dic)
         except:
@@ -93,7 +93,7 @@ class DAO_mongo(dao.DAO):
 
 
     def write_user_attribute(self, attribute, value):
-        print "Setting %s to %s " % (attribute, value)
+        print ("Setting %s to %s " % (attribute, value))
         where = {'attribute': attribute}
         data  = {'attribute': attribute, 'value': value}
         return self.db.user.update(where, data, {'upsert': True})
